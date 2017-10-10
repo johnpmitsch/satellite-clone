@@ -43,9 +43,14 @@ org: changeme
 
 # Run katello-reindex - This setting can optionally be used to run katello reindex after the Satellite install.
 # Note: If you are planning to clone your Satellite 6.1 and immediately upgrade to 6.2, you may choose to skip this step.
-# A reindex will run automatically if you set include_pulp_data to false
 # uncomment the following line to override this option (defaults to false)
 #run_katello_reindex: false
+
+# Skip Pulp Data - You can skip the backup check for pulp_data.tar file. Not restoring pulp data on 
+# the filesystem will result in a system that is not fully functioning. Use this option if you are 
+# copying the data over manually or are using satellite-clone for debugging purposes.
+#
+# skip_pulp_data: false
 
 # Run pre_install_check
 # uncomment the following line to override this option (defaults to true)

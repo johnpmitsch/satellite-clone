@@ -18,6 +18,17 @@
     get_checksum: False
     get_md5: False
   register: pulp_data
+  when: not skip_pulp_data
+
+# use an existing file to override pulp data
+# check when skipped
+- name: Override pulp data check
+  stat:
+    path: '/etc/redhat-release'
+    get_checksum: False
+    get_md5: False
+  register: pulp_data
+  when: skip_pulp_data
 
 - name: Check for foreman dump file
   stat:
